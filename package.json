@@ -1,5 +1,5 @@
 {
-  "name": "clean-backend",
+  "name": "clean-node-backend",
   "version": "0.0.1",
   "description": "Clean architecture in NodeJS",
   "main": "index.js",
