@@ -13,6 +13,7 @@
     "architecture",
     "backend"
   ],
+  "repository": "https://github.com/noherczeg/clean-node-backend.git",
   "author": "Norbert Csaba Herczeg <noherczeg@gmail.com>",
   "license": "MIT",
   "dependencies": {
