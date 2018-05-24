@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { CarRESTCreate } = require('./car/CarRESTCreate');
-const { CarRESTList } = require('./car/CarRESTList');
+const { CarRESTCreate } = require('./infrastructure/rest/car/CarRESTCreate');
+const { CarRESTList } = require('./infrastructure/rest/car/CarRESTList');
 
 const app = express();
 app.use(bodyParser.json());
