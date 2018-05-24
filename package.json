@@ -1,0 +1,23 @@
+{
+  "name": "clean-backend",
+  "version": "0.0.1",
+  "description": "Clean architecture in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "clean",
+    "architecture",
+    "backend"
+  ],
+  "author": "Norbert Csaba Herczeg <noherczeg@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.16.3",
+    "sequelize": "^4.37.8",
+    "sqlite3": "4.0.0"
+  }
+}
