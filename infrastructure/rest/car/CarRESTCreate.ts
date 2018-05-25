@@ -1,18 +1,21 @@
-const {db} = require('../../database/database');
-const {Car} = require('../../../domain/Car');
+import {Request, Response} from 'express';
 
-const CarRESTCreate = (req, res) => {
+import {db} from '../../database/database';
+import {Car} from '../../../domain/Car';
+
+const CarRESTCreate = (req: Request, res: Response) => {
+  // TODO: introduce request and response types
   const {color, engine} = req.body;
   try {
     const car = Car.createDefault(color, engine);
-    runDBOperation(car, err => {
+    runDBOperation(car, (err: Error) => {
       if (err) {
         console.error(err.stack);
         res.status(500).send('Something broke while creating!');
       }
       // get the last insert id
       res.status(204).send();
-      console.log(`A Car has been inserted with rowid ${this.lastID}`);
+      console.log(`A Car has been inserted with row id: ${this.lastID}`);
     });
   } catch (err) {
     console.error(err.stack);
@@ -20,8 +23,8 @@ const CarRESTCreate = (req, res) => {
   }
 };
 
-function runDBOperation(car, cb) {
+function runDBOperation(car: Car, cb: Function) {
   db.run(`INSERT INTO car(color) VALUES(?)`, [car.color], cb);
 }
 
-module.exports = {CarRESTCreate};
+export {CarRESTCreate};

@@ -1,5 +1,8 @@
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('car.db', err => {
+import {verbose} from 'sqlite3';
+
+const sqlite3 = verbose();
+
+const db = new sqlite3.Database('car.db', (err: Error) => {
   if (err) {
     return console.error(err.message);
   }
@@ -12,4 +15,4 @@ db.serialize(function () {
   db.run('CREATE TABLE IF NOT EXISTS engine (id INTEGER PRIMARY KEY AUTOINCREMENT, cc INTEGER, make CHAR(50))');
 });
 
-module.exports = {db};
+export {db};
