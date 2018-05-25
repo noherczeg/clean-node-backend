@@ -1,18 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const { CarRESTCreate } = require('./infrastructure/rest/car/CarRESTCreate');
-const { CarRESTList } = require('./infrastructure/rest/car/CarRESTList');
+const {routes} = require('./infrastructure/rest/routing');
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use((req, res, next) => {
-    res.header('Content-Type', 'application/json');
-    next();
+  res.header('Content-Type', 'application/json');
+  next();
 });
-
-app.get('/', (req, res) => res.send('Hello World!'));
-app.get('/car', CarRESTList);
-app.post('/car', CarRESTCreate);
+app.use('/', routes);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
