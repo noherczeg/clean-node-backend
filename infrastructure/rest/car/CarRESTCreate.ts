@@ -8,7 +8,7 @@ const CarRESTCreate = (req: Request, res: Response) => {
   const {color, engine} = req.body;
   try {
     const car = Car.createDefault(color, engine);
-    runDBOperation(car, (err: Error) => {
+    runDBOperation(car, function (err: Error) {
       if (err) {
         console.error(err.stack);
         res.status(500).send('Something broke while creating!');
@@ -23,7 +23,7 @@ const CarRESTCreate = (req: Request, res: Response) => {
   }
 };
 
-function runDBOperation(car: Car, cb: Function) {
+function runDBOperation(car: Car, cb: (err: Error) => void) {
   db.run(`INSERT INTO car(color) VALUES(?)`, [car.color], cb);
 }
 
